@@ -14,6 +14,11 @@ class Satker extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    // public function __construct()
+    // {
+    //     $this->setPerPage((int) Setting::where('key', 'item_per_page')->first()->value);
+    // }
+
     public static function getAllData()
     {
         $satkers = DB::table('master_satkers')

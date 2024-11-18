@@ -13,11 +13,19 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->boolean('state');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');
-            $table->integer('cat_id')->default(0);
+            $table->foreignId('category_id')->constrained(
+                table: 'categories',
+                indexName: 'post_category_id'
+            );
             $table->string('description');
+            $table->foreignId('user_id')->constrained(
+                table: 'users',
+                indexName: 'post_user_id'
+            );
             $table->timestamps();
         });
     }

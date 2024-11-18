@@ -1,0 +1,4 @@
+class Speeddial extends Component
+{
+
+}

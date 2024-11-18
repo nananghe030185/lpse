@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('kd_rup');
             $table->string('kd_klpd');
             $table->string('kd_satker');
-            $table->string('nama_paket');
+            $table->text('nama_paket');
             $table->double('pagu');
             $table->string('metode_pemilihan');
             $table->string('sumber_dana');

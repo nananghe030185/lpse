@@ -1,8 +1,10 @@
 <x-backend.layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight lg:px-5 md:px-5 sm:px-2 xsm:px-2">
-            {{ __('Non Tender LPSE') }}
-        </h2>
-    </x-slot>
+    <x-slot:title>{{ $title }}</x-slot:title>
 
+    <x-slot name="header">
+        <x-breadcrumb href="{{ route('nontender') }}">Non Tender</x-breadcrumb>
+    </x-slot>
+    <x-slot:logo>{{ $setting }}</x-slot:logo>
+
+    <x-alert></x-alert>
 </x-backend.layout>

@@ -1,3 +1,4 @@
+-- Active: 1731321842585@@127.0.0.1@5432@lpse
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf

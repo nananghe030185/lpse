@@ -11,27 +11,40 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Tender extends Model
 {
     use HasFactory;
+    // protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
     // Earger Lazy Loading
-    protected $with = ['datalpse'];
+    protected $with = ['lpses'];
 
     /**
      * Ralasi ke Tabel Master_lpses
      */
-    public function datalpse(): BelongsTo
+    public function lpses(): BelongsTo
     {
-        return $this->belongsTo(Lpse::class, 'repo_id', 'kd_lpse');
+        return $this->belongsTo(Lpse::class, 'lpse_id');
     }
+
 
     /**
      * search query
      */
-    public function scopeFilter(Builder $query, array $filters): void
+    public function scopeFilter(Builder $query): void
     {
-        $query->when($filters['search'] ?? false, function ($query, $search) {
-            $query->where('nama_paket', 'ilike', '%' . $search . '%');
-        });
+
+        request('search') ?  $query->whereAny(['nama_paket', 'tahapan', 'ijin', 'tender_id'], 'ilike', '%' . request('search') . '%') : '';
+
+        request()->has('pengadaanbarang') ? $query->where('kategori', '=', 'Pengadaan Barang') : '';
+        request()->has('jkbunk') ? $query->where('kategori', '=', 'Jasa Konsultansi Badan Usaha Non Konstruksi') : '';
+        request()->has('pk') ? $query->where('kategori', '=', 'Pekerjaan Konstruksi') : '';
+        request()->has('jl') ? $query->where('kategori', '=', 'Jasa Lainnya') : '';
+        request()->has('jkpnk') ? $query->where('kategori', '=', 'Jasa Konsultansi Perorangan Non Konstruksi') : '';
+        request()->has('jkbuk') ? $query->where('kategori', '=', 'Jasa Konsultansi Badan Usaha Konstruksi') : '';
+        request()->has('jkpk') ? $query->where('kategori', '=', 'Jasa Konsultansi Perorangan Konstruksi') : '';
+        request()->has('pkt') ? $query->where('kategori', '=', 'Pekerjaan Konstruksi Terintegrasi') : '';
+        request()->has('pkt') ? $query->where('kategori', '=', 'Pekerjaan Konstruksi Terintegrasi') : '';
+
+        request('lpse') > 0 ? $query->where('tender_id', '=', request('lpse')) : '';
     }
 
     /**
@@ -39,6 +52,6 @@ class Tender extends Model
      */
     public function scopeLpse(Builder $query): void
     {
-        $query->where('lpse', 'ilike', '%' . request('lpse') . '%');
+        request('search') ?  $query->where('lpse', 'ilike', '%' . request('lpse') . '%') : '';
     }
 }

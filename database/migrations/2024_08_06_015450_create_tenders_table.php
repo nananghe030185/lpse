@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tenders', function (Blueprint $table) {
             $table->id();
-            $table->string('kd_tender');
-            $table->integer('repo_id')->nullable();
+            $table->bigInteger('tender_id');
+            $table->bigInteger('lpse_id');
             $table->string('lpse')->nullable();
             $table->string('status_tender')->nullable();
             $table->string('nama_paket')->nullable();
@@ -29,11 +29,11 @@ return new class extends Migration
             $table->string('metode_evaluasi')->nullable();
             $table->string('cara_pembayaran')->nullable();
             $table->string('jenis_penetapan_pemenang')->nullable();
-            $table->text('instansi_dan_satker')->nullable();
+            $table->jsonb('instansi_dan_satker')->nullable();
             $table->string('apakah_paket_konsolidasi')->nullable();
             $table->text('daftar_paket_konsolidasi')->nullable();
-            $table->text('anggaran')->nullable();
-            $table->text('lokasi_paket')->nullable();
+            $table->jsonb('anggaran')->nullable();
+            $table->jsonb('lokasi_paket')->nullable();
             $table->integer('jumlah_pendaftar')->nullable();
             $table->integer('jumlah_penawar')->nullable();
             $table->integer('jumlah_kirim_kualifikasi')->nullable();
@@ -45,6 +45,8 @@ return new class extends Migration
             $table->text('jadwal_penawaran')->nullable();
             $table->dateTime('tanggal_awal_penawaran')->nullable();
             $table->dateTime('tanggal_akhir_penawaran')->nullable();
+            $table->string('tahapan')->nullable();
+            $table->string('ijin')->nullable();
             $table->datetimes();
             // $table->timestamps();
         });

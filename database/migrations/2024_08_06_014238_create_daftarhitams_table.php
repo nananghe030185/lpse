@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama_klpd')->nullable();
             $table->string('kd_satker')->nullable();
             $table->string('nama_satker')->nullable();
-            $table->string('kd_lpse')->nullable();
+            $table->string('lpse_id')->nullable();
             $table->string('kd_penyedia')->nullable();
             $table->string('nama_penyedia')->nullable();
             $table->string('npwp_penyedia')->nullable();

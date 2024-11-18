@@ -1,3 +1,11 @@
+<select name="perpage" id="perpage" class="float-left rounded p-1 mx-3 my-5" onchange="confirm('yakin')">
+    <option value="10">10</option>
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="500">500</option>
+    <option value="1000">1000</option>
+</select>
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="{{ __('Pagination Navigation') }}"
         class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4">
@@ -87,7 +95,7 @@
                                 @if ($page == $paginator->currentPage())
                                     <span aria-current="page">
                                         <span
-                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 dark:bg-gray-800 dark:border-gray-600">{{ $page }}</span>
+                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm text-gray-500  border border-gray-300 bg-blue-300 font-bold cursor-default leading-5 dark:bg-gray-300 dark:border-gray-600">{{ $page }}</span>
                                     </span>
                                 @else
                                     <a href="{{ $url }}"
@@ -129,3 +137,5 @@
         </div>
     </nav>
 @endif
+
+<script></script>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('inboxes', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('status');
+            $table->boolean('status')->default(false);
             $table->string('pesan');
             $table->integer('user_id');
             $table->string('channel');

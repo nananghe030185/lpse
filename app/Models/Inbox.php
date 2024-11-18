@@ -14,6 +14,11 @@ class Inbox extends Model
     // Earger Lazy Loading
     protected $with = ['user'];
     protected $guarded = ['id'];
+
+    // public function __construct()
+    // {
+    //     $this->setPerPage((int) Setting::where('key', 'item_per_page')->first()->value);
+    // }
     /**
      * Relasi ke Tabel User
      */

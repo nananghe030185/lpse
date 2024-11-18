@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+            $table->boolean('state');
             $table->integer('user_id')->unique();
-            $table->boolean('status')->nullable();
             $table->string('nama')->nullable();
             $table->string('perusahaan')->nullable();
             $table->string('kbli')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('notif_email')->default(false);
             $table->string('image')->nullable();
             $table->dateTime('masa_berlaku')->default(now());
-            $table->string('ref_key')->nullable();
+            $table->string('upline')->nullable();
             $table->datetimes();
             // $table->timestamps();
         });

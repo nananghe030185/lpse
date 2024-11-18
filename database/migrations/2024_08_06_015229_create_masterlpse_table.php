@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('lpses', function (Blueprint $table) {
             $table->id();
-            $table->integer('kd_lpse')->unique();
+            $table->boolean('state')->default(true);
+            // $table->integer('lpse_id')->unique();
             $table->string('nama_lpse');
             $table->string('link');
             $table->integer('jumlah_paket')->nullable(false)->default(0);
             $table->double('jumlah_pagu')->nullable(false)->default(0);
             $table->string('slug')->unique()->nullable();
-            $table->string('meta_desc')->nullable();
+            $table->string('description')->nullable();
+            $table->string('logo')->nullable();
+            $table->boolean('scrape')->default(false);
             $table->datetimes();
-            // $table->timestamps();
         });
     }
 

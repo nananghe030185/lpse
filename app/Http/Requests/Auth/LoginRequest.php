@@ -37,7 +37,7 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function authenticate(): void
+    public function authenticate()
     {
         $this->ensureIsNotRateLimited();
 
@@ -49,6 +49,11 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        //Jika state false kembalikan ke login
+        if (Auth::user()->state == false) {
+            Auth::logout();
+            return redirect(route('login'))->with('error', 'Login Gagal silahkan hubungi admin kami');
+        }
         RateLimiter::clear($this->throttleKey());
     }
 
@@ -80,6 +85,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }

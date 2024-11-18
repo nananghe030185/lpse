@@ -6,10 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "eleirbag89/telegrambotphp": "^1.4",
+        "guzzlehttp/guzzle": "7.9.2",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "seyyedam7/laravel-html-parser": "^2.2"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.23",
         "laravel/breeze": "^2.1",
         "laravel/pint": "^1.13",

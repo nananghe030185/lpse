@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('pin_pakets', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('proyek_id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('proyek_id');
+            $table->bigInteger('lpse_id');
+            $table->string('nama_paket');
             $table->string('tipe');
             $table->datetimes();
             // $table->timestamps();

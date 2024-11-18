@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('laporan_keuangans', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('tanggal')->unique();
+            $table->dateTime('tanggal');
             $table->bigInteger('user_id');
             $table->string('keterangan');
             $table->double('pemasukan')->nullable(false)->default(0);

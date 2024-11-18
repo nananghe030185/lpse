@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('outboxes', function (Blueprint $table) {
             $table->id();
+            $table->boolean('state')->default('false');
             $table->integer('user_id')->nullable();
-            $table->bigInteger('kd_tender')->nullable();
-            $table->string('pesan')->nullable();
+            $table->bigInteger('tender_id')->nullable()->default(0);
+            $table->text('pesan')->nullable();
             $table->string('channel')->nullable();
             $table->tinyInteger('status')->nullable()->default(0);
             $table->datetimes();

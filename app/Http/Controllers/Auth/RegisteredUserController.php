@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AppLpse;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProfile;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,7 +34,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -39,6 +42,21 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'group_id' => 2,
+        ]);
+
+        // Tambah User ID di Profile
+        $admin = User::where('group_id', 1)->first();
+
+        $now = new Carbon();
+        $now->addDays(intval(AppLpse::setting('masa_percobaan')));
+
+        UserProfile::create([
+            'user_id' => $user->id,
+            'nama' => $user->name,
+            //Tambah hari
+            'masa_berlaku' => Carbon::parse($now)->format('Y-M-d 00:00:00'),
+            'upline' => $request->cookie('upline', $admin->username),
         ]);
 
         event(new Registered($user));

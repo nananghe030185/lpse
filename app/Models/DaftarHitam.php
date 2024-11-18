@@ -13,6 +13,11 @@ class DaftarHitam extends Model
 
     protected $guarded = ['id'];
 
+    // public function __construct()
+    // {
+    //     $this->setPerPage((int) Setting::where('key', 'item_per_page')->first()->value);
+    // }
+
     public function scopeFilter(Builder $query): void
     {
         $query->where('nama_penyedia', 'ilike', '%' . request('search') . '%');
