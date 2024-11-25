@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('satkers', function (Blueprint $table) {
             $table->id();
-            $table->boolean('lelang')->nullable(false)->default('false');
-            $table->boolean('swakelola')->nullable(false)->default('false');
+            $table->boolean('lelang')->nullable(false)->default(false);
+            $table->boolean('swakelola')->nullable(false)->default(false);
             $table->string('kd_satker')->unique();
             // $table->string('kd_klpd');
             $table->string('kd_klpd');
