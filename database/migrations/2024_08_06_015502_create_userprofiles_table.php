@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
-            $table->boolean('state');
+            $table->boolean('state')->default(false);
             $table->integer('user_id')->unique();
             $table->string('nama')->nullable();
             $table->string('perusahaan')->nullable();
