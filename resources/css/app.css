@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h2{
+    @apply lg:text-9xl md:text-8xl
+}
+@layer base
+{
+    h2 {
+        @apply text-9xl text-red-600 font-medium;
+    }
+}
+
+@layer components
+{
+    .card{
+        @apply max-w-sm p-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-52;
+    }
+}
+
+
+

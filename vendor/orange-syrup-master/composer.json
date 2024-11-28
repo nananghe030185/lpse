@@ -1,0 +1,29 @@
+{
+    "name": "rizalmovic/orange-syrup",
+    "type": "library",
+    "description": "Api Wrapper for SIRUP LKPP",
+    "keywords": [
+        "RUP",
+        "Api",
+        "LKPP",
+        "SiRUP"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Habli Muhammad Rizal",
+            "email": "rizalmovic@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "Rizalmovic\\OrangeSyrup\\": "src/OrangeSyrup"
+        }
+    }
+}

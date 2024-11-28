@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'lpse' => 'LPSE',
+    'kode' => 'Kode Tender',
+    'status' => 'Status',
+    'kategori' => 'Kategori',
+    'metode_pemilihan' => 'Metode Pemilihan',
+    'metode_pengadaan' => 'Metode Pengadaan',
+    'metode_evaluasi' => 'Metode Evaluasi',
+    'cara_pembayaran' => 'Cara Pembayaran',
+    'jenis_penetapan_pemenang' => 'Jenis Penetapan Pemenang',
+    'lokasi_paket' => 'Lokasi Paket',
+    'tanggal_awal_pengumuman' => 'Tanggal Awal Pengumuman',
+    'tanggal_akhir_pengumuman' => 'Tanggal Akhir Pengumuman',
+    'tanggal_awal_penawaran' => 'Tanggal Awal Penawaran',
+    'tanggal_akhir_penawaran' => 'Tanggal Akhir Penawaran',
+    'hps' => 'HPS',
+    'kd_rup' => 'Kode RUP',
+    'nama_klpd' => 'Nama KLPD',
+    'nama_satker' => 'Nama Satuan Kerja',
+    'sumber_dana' => 'Sumber Dana',
+    'waktu_pemilihan' => 'Waktu Pemilihan',
+    'metode_pemilihan' => 'Metode Pemilihan',
+    'pagu' => 'Pagu',
+];
